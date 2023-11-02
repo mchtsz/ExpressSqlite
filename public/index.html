@@ -9,5 +9,18 @@
 </head>
 <body>
     <h1>Hello</h1>
+
+    <form action="/addUser" method="POST">
+        <input type="text" name="name" placeholder="Name" id="">
+        <input type="text" name="email" placeholder="Email" id="">
+        <input type="text" name="password" placeholder="Password" id="">
+        <input type="submit" value="Submit"></input>
+    </form>
+
+    <form action="/login" method="POST">
+        <input type="text" name="email" placeholder="Email" id="">
+        <input type="text" name="password" placeholder="Password" id="">
+        <input type="submit" value="Submit"></input>
+    </form>
 </body>
 </html>

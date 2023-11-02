@@ -23,6 +23,22 @@ const removeStmt = db.prepare(`DELETE FROM users WHERE id = ?;`);
 
 */
 
+app.get("/users", (req, res) => {
+  const users = db.prepare("SELECT * FROM users").all();
+  res.send(users);
+});
+
+app.post("/login", (req, res) => {
+  const { email, password } = req.body;
+  const user = db.prepare("SELECT * FROM users WHERE email = ? AND password = ?").get(email, password);
+
+  if (user) {
+    res.send("User logged in successfully");
+  } else {
+    res.send("Wrong email or password");
+  }
+});
+
 app.post("/addUser", (req, res) => {
   const { name, email, password } = req.body;
   const insertStmt = db.prepare(
